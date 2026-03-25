@@ -1,0 +1,92 @@
+"https://qiita.com/morikooooo/items/9fd41bcd8d1ce9170301
+set fenc=utf-8
+set nobackup
+set noswapfile
+set autoread
+set hidden
+set showcmd
+
+set number
+set cursorline
+"set cursorcolumn
+set virtualedit=onemore
+set smartindent
+"set visualbell
+set showmatch
+set laststatus=2
+set wildmode=list:longest
+nnoremap j gj
+nnoremap k gk
+syntax enable
+set autochdir
+
+set list listchars=tab:\▸\-
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set ignorecase
+set smartcase
+set incsearch
+set wrapscan
+set hlsearch
+" set clipboard=unnamed,autoselect
+nmap <Esc><Esc> :nohlsearch <CR><Esc>
+
+set mouse=a
+set ttymouse=sgr
+
+call plug#begin()
+" Plug 'preservim/nerdtree'
+  Plug 'lambdalisue/vim-fern'
+  Plug 'lambdalisue/nerdfont.vim'
+  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  Plug 'lambdalisue/vim-fern-git-status'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tomasiser/vim-code-dark'
+  Plug 'tyru/skk.vim'
+  Plug 'obcat/vim-hitspop'
+  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+  Plug 'chrisbra/Colorizer'
+call plug#end()
+
+"https://qiita.com/youichiro/items/b4748b3e96106d25c5bc
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#default#layout = [
+  \ [ 'a', 'b', 'c' ],
+  \ ['z']
+  \ ]
+let g:airline_section_c = '%t %M'
+let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
+let g:airline#extensions#hunks#non_zero_only = 1
+
+let g:airline_theme = 'catppuccin_mocha'
+let g:airline#extensions#tabline#enabled = 1 " タブラインを表示
+let g:airline_powerline_fonts = 1            " Powerline Fontsを利用
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.crypt = '🔒'		"暗号化されたファイル
+let g:airline_symbols.branch = ''		"gitブランチ
+
+set ttimeoutlen=50
+
+set termguicolors
+" colorscheme codedark
+" colorscheme habamax
+" colorscheme daybreak
+colorscheme catppuccin_mocha
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=30<CR>
+let g:fern#renderer = 'nerdfont'
+let g:fern#default_hidden=1
+
+let skk_large_jisyo = '~/.skk/SKK-JISYO.L'
+let skk_auto_save_jisyo = 1
+
+"let fcitx5state=system("fcitx5-remote")
+"autocmd InsertLeave * :silent let fcitx5state=system("fcitx5-remote")[0] | silent !fcitx5-remote -c " Disable the input method when exiting insert mode and save the state
+"autocmd InsertEnter * :silent if fcitx5state == 2 | call system("fcitx5-remote -o") | endif " 2 means that the input method was opened in the previous state, and the input method is started when entering the insert mode
+

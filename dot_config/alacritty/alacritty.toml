@@ -1,0 +1,29 @@
+[keyboard]
+bindings = [
+  { key = "=", mods = "Control|Shift", action = "IncreaseFontSize" },
+  { key = "F11", action = "ToggleFullscreen"}
+]
+
+[general]
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[window]
+decorations = "None"
+
+[mouse]
+hide_when_typing = true
+
+[font.normal]
+family = "SauceCodePro Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "SauceCodePro Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "SauceCodePro Nerd Font"
+style = "Italic"
+
